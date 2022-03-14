@@ -1,10 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: "@asimonv",
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://asimonv.dev`,
   },
   plugins: [
     "gatsby-plugin-styled-components",
+    'gatsby-plugin-react-helmet',
     "gatsby-plugin-mdx",
     {
       resolve: "gatsby-plugin-sharp",

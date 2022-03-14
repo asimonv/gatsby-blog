@@ -3,6 +3,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 import BlogLayout from "../../components/BlogLayout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Head from "../../components/Head";
 
 const PostPage = ({
   data: {
@@ -23,6 +24,7 @@ const PostPage = ({
 
   return (
     <BlogLayout>
+      <Head title={title} />
       <GatsbyImage
         image={image}
         alt={hero_image_alt}
@@ -38,9 +40,7 @@ const PostPage = ({
         <article className="space-y-3 leading-relaxed px-4 max-w-2xl self-center mt-4">
           <header>
             <div className="flex items-end pb-1">
-              <time className="font-medium text-sm tracking-wide">
-                {date}
-              </time>
+              <time className="font-medium text-sm tracking-wide">{date}</time>
             </div>
             <h1 className="text-3xl tracking-tight font-semibold">{title}</h1>
             <div className="text-gray-500 text-lg font-medium">
