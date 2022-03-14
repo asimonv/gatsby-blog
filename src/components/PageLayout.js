@@ -8,7 +8,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import { preToCodeBlock } from 'mdx-utils';
+import { preToCodeBlock } from "mdx-utils";
 
 import Header from "./Header";
 import { MDXProvider } from "@mdx-js/react";
@@ -45,10 +45,13 @@ const PageLayout = ({ children }) => {
 
   return (
     <MDXProvider components={components}>
-      <div className="grow flex flex-col pt-4 pb-8 space-y-4">
-        <Header siteTitle={data.site.siteMetadata.title} />
-
-        <div className="flex flex-col">{children}</div>
+      <div className="grow flex flex-col pt-4 space-y-4">
+        <div className="self-center max-w-2xl w-full items-center flex">
+          <Header siteTitle={data.site.siteMetadata.title} />
+        </div>
+        <div>
+          <div className="flex flex-col">{children}</div>
+        </div>
       </div>
     </MDXProvider>
   );

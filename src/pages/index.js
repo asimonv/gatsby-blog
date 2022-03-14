@@ -4,10 +4,12 @@ import List from "../components/List";
 import Section from "../components/Section";
 
 const Home = ({ data }) => (
-  <div className="space-y-4 mt-4 grow flex flex-col max-w-4xl mx-auto">
-    <Section>
-      <List posts={data.allMdx.nodes} />
-    </Section>
+  <div>
+    <div className="space-y-4 mt-4 grow flex flex-col max-w-4xl mx-auto">
+      <Section>
+        <List posts={data.allMdx.nodes} />
+      </Section>
+    </div>
   </div>
 );
 
