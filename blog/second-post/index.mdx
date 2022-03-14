@@ -1,0 +1,43 @@
+---
+title: 'A simple introduction to Python variables'
+date: "2021-07-23"
+description: "Let's learn about Python variables"
+thumbnailUrl: "/python-variables-thumbnail.jpeg"
+layout: Article
+tags: ['variables', 'python']
+author: Andre Simon
+---
+
+<div>
+  Messenger is developing “Video Meetup Link”, a feature that allows anyone to join a Messenger Call through an invite link even without a Facebook account.
+</div>
+
+<br/>
+
+<StaticCodeSnippet language="python">
+{`class Solution(object):
+  # The idea is if we found a 1, means that we found an island
+  # so we have to paint every part of it. That DFS will end when
+  # we're surrounded by water, so we must find another island or 1
+  # in the matrix.
+  def numIslands(self, grid):
+      """
+      :type grid: List[List[str]]
+      :rtype: int
+      """
+      res = 0
+      for i in range(len(grid)):
+          for j in range(len(grid[0])):
+            if grid[i][j] == "1":
+                    res += 1
+                    self.dfs(i,j,grid)
+      return res
+    
+  def dfs(self, i, j, grid):
+      if i < 0 or j < 0 or i > len(grid) or j > len(grid[0]) or grid[i][j] != "1": return
+      grid[i][j] = "#"
+      self.dfs(i-1, j, grid)
+      self.dfs(i+1, j, grid)
+      self.dfs(i, j-1, grid)
+      self.dfs(i, j+1, grid)`}
+</StaticCodeSnippet>
