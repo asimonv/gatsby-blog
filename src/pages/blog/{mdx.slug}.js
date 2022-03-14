@@ -7,7 +7,14 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 const PostPage = ({
   data: {
     mdx: {
-      frontmatter: { date, title, description, hero_image, hero_image_alt },
+      frontmatter: {
+        date,
+        title,
+        description,
+        hero_image,
+        hero_image_alt,
+        hide_article,
+      },
       body,
     },
   },
@@ -16,21 +23,35 @@ const PostPage = ({
 
   return (
     <BlogLayout>
-      <GatsbyImage image={image} alt={hero_image_alt} className="relative h-[33vh]"/>
-      <article className="space-y-3 leading-relaxed px-4 max-w-2xl self-center mt-4">
-        <header>
-          <div className="flex items-end pb-1">
-            <time className="font-medium text-sm tracking-wide text-gray-500">
-              {date}
-            </time>
+      <GatsbyImage
+        image={image}
+        alt={hero_image_alt}
+        className={hide_article ? "" : "relative h-[33vh]"}
+        objectPosition={hide_article ? "top" : "50% 50%"}
+        style={
+          hide_article
+            ? { position: "absolute", top: 100, left: 0, bottom: 0, right: 0 }
+            : {}
+        }
+      />
+      {!hide_article && (
+        <article className="space-y-3 leading-relaxed px-4 max-w-2xl self-center mt-4">
+          <header>
+            <div className="flex items-end pb-1">
+              <time className="font-medium text-sm tracking-wide text-gray-500">
+                {date}
+              </time>
+            </div>
+            <h1 className="text-3xl tracking-tight font-semibold">{title}</h1>
+            <div className="text-gray-900 text-lg font-medium">
+              {description}
+            </div>
+          </header>
+          <div className="text-lg flex flex-col mt-4">
+            <MDXRenderer>{body}</MDXRenderer>
           </div>
-          <h1 className="text-3xl tracking-tight font-semibold">{title}</h1>
-          <div className="text-gray-900 text-lg font-medium">{description}</div>
-        </header>
-        <div className="text-lg flex flex-col mt-4">
-          <MDXRenderer>{body}</MDXRenderer>
-        </div>
-      </article>
+        </article>
+      )}
     </BlogLayout>
   );
 };
@@ -42,6 +63,7 @@ export const query = graphql`
         title
         date(formatString: "MMMM D, YYYY")
         description
+        hide_article
         hero_image_alt
         hero_image_credit_link
         hero_image_credit_text
