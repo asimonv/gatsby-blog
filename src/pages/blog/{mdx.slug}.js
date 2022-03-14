@@ -3,7 +3,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 import BlogLayout from "../../components/BlogLayout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import Head from "../../components/Head";
+import SEOHeader from "../../components/SEOHeader";
 
 const PostPage = ({
   data: {
@@ -15,6 +15,7 @@ const PostPage = ({
         hero_image,
         hero_image_alt,
         hide_article,
+        keywords,
       },
       body,
     },
@@ -24,7 +25,7 @@ const PostPage = ({
 
   return (
     <BlogLayout>
-      <Head title={title} />
+      <SEOHeader title={title} description={description} keywords={keywords} />
       <GatsbyImage
         image={image}
         alt={hero_image_alt}
@@ -63,6 +64,7 @@ export const query = graphql`
         title
         date(formatString: "MMMM D, YYYY")
         description
+        keywords
         hide_article
         hero_image_alt
         hero_image_credit_link
