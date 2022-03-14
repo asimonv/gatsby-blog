@@ -38,16 +38,16 @@ const PostPage = ({
         <article className="space-y-3 leading-relaxed px-4 max-w-2xl self-center mt-4">
           <header>
             <div className="flex items-end pb-1">
-              <time className="font-medium text-sm tracking-wide text-gray-500">
+              <time className="font-medium text-sm tracking-wide">
                 {date}
               </time>
             </div>
             <h1 className="text-3xl tracking-tight font-semibold">{title}</h1>
-            <div className="text-gray-900 text-lg font-medium">
+            <div className="text-gray-500 text-lg font-medium">
               {description}
             </div>
           </header>
-          <div className="text-lg flex flex-col mt-4">
+          <div className="text-lg block mt-4">
             <MDXRenderer>{body}</MDXRenderer>
           </div>
         </article>
