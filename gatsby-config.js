@@ -1,7 +1,10 @@
 module.exports = {
   siteMetadata: {
+    defaultTitle: "@asimonv",
     title: "@asimonv",
     siteUrl: `https://asimonv.dev`,
+    titleTemplate: "%s | @asimonv",
+    twitterUsername: "asimonv",
   },
   plugins: [
     "gatsby-plugin-styled-components",
