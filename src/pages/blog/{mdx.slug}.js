@@ -5,6 +5,7 @@ import BlogLayout from "../../components/BlogLayout";
 import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image";
 import SEOHeader from "../../components/SEOHeader";
 import PostAuthor from "../../components/PostAuthor";
+import Footer from "../../components/Footer";
 
 const PostPage = ({
   location: { pathname },
@@ -51,21 +52,26 @@ const PostPage = ({
         />
       )}
       {!hide_article && (
-        <article className="space-y-3 leading-relaxed px-4 max-w-2xl self-center mt-4">
-          <header>
-            <div className="flex items-end pb-1">
-              <time className="font-medium text-sm tracking-wide">{date}</time>
+        <>
+          <article className="space-y-3 leading-relaxed px-4 py-4 max-w-2xl self-center mt-4 w-full">
+            <header>
+              <div className="flex items-end pb-1">
+                <time className="font-medium text-sm tracking-wide">
+                  {date}
+                </time>
+              </div>
+              <h1 className="text-3xl tracking-tight font-semibold">{title}</h1>
+              <div className="text-gray-500 text-lg font-medium">
+                {description}
+              </div>
+            </header>
+            <PostAuthor />
+            <div className="text-lg block mt-4">
+              <MDXRenderer>{body}</MDXRenderer>
             </div>
-            <h1 className="text-3xl tracking-tight font-semibold">{title}</h1>
-            <div className="text-gray-500 text-lg font-medium">
-              {description}
-            </div>
-          </header>
-          <PostAuthor/>
-          <div className="text-lg block mt-4">
-            <MDXRenderer>{body}</MDXRenderer>
-          </div>
-        </article>
+          </article>
+          <Footer />
+        </>
       )}
     </BlogLayout>
   );

@@ -25,7 +25,7 @@ const LineNo = styled.span`
 `;
 
 const LineContent = styled.span`
-  display: table-cell;
+  display: block;
 `;
 
 const StaticCodeSnippet = ({ children: code, language }) => {
