@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import DarkToggle from "./DarkToggle";
-import { FiGithub } from "react-icons/fi";
-import { FiTwitter } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
 
 const Header = ({ siteTitle, twitterUsername }) => {
   return (
@@ -33,6 +32,15 @@ const Header = ({ siteTitle, twitterUsername }) => {
             href={`https://twitter.com/${twitterUsername}`}
           >
             <FiTwitter size={24} className="inline-block w-6 h-6 stroke-2 d" />
+          </a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer external"
+            aria-label={`LinkedIn: Andre Simon`}
+            className="flex items-center justify-center transition hover:text-blue-600"
+            href={`https://linkedin.com/in/${twitterUsername}`}
+          >
+            <FiLinkedin size={24} className="inline-block w-6 h-6 stroke-2 d" />
           </a>
           <DarkToggle />
         </div>
