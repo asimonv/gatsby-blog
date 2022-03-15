@@ -7,6 +7,7 @@ import SEOHeader from "../../components/SEOHeader";
 import PostAuthor from "../../components/PostAuthor";
 
 const PostPage = ({
+  location: { pathname },
   data: {
     mdx: {
       frontmatter: {
@@ -34,6 +35,7 @@ const PostPage = ({
         description={description}
         keywords={keywords}
         image={ogImage}
+        pathname={pathname}
       />
       {image && (
         <GatsbyImage

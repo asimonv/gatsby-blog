@@ -10,6 +10,7 @@ const SEOHeader = ({
   image,
   author,
   lang,
+  pathname,
 }) => {
   const {
     site: {
@@ -25,6 +26,8 @@ const SEOHeader = ({
     },
   } = useStaticQuery(query);
 
+  const canonical = pathname ? `${siteUrl}${pathname}` : null;
+
   return (
     <>
       <Helmet
@@ -34,6 +37,16 @@ const SEOHeader = ({
         defaultTitle={defaultTitle}
         title={title}
         titleTemplate={titleTemplate}
+        link={
+          canonical
+            ? [
+                {
+                  rel: "canonical",
+                  href: canonical,
+                },
+              ]
+            : []
+        }
         meta={[
           {
             name: `description`,
@@ -52,6 +65,10 @@ const SEOHeader = ({
             content: description || defaultDescription,
           },
           {
+            property: `og:url`,
+            content: canonical || siteUrl
+          },
+          {
             property: `og:type`,
             content: `website`,
           },
@@ -61,7 +78,7 @@ const SEOHeader = ({
           },
           {
             name: `twitter:card`,
-            content: `summary`,
+            content: `summary_large_image`,
           },
           {
             name: `twitter:image`,
