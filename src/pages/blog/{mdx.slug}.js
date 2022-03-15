@@ -4,6 +4,8 @@ import React from "react";
 import BlogLayout from "../../components/BlogLayout";
 import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image";
 import SEOHeader from "../../components/SEOHeader";
+import { authors } from "../../data/authors";
+import PostAuthor from "../../components/PostAuthor";
 
 const PostPage = ({
   data: {
@@ -16,6 +18,7 @@ const PostPage = ({
         hero_image_alt,
         hide_article,
         og_image,
+        author_id,
         keywords,
       },
       body,
@@ -24,6 +27,8 @@ const PostPage = ({
 }) => {
   const image = getImage(hero_image);
   const ogImage = getSrc(og_image);
+  const authorInfo = authors.find(x => x.id === author_id)
+
   return (
     <BlogLayout>
       <SEOHeader
@@ -56,6 +61,7 @@ const PostPage = ({
               {description}
             </div>
           </header>
+          <PostAuthor author={authorInfo}/>
           <div className="text-lg block mt-4">
             <MDXRenderer>{body}</MDXRenderer>
           </div>
@@ -87,6 +93,7 @@ export const query = graphql`
             gatsbyImageData
           }
         }
+        author_id
       }
       body
     }

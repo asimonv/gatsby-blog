@@ -1,5 +1,4 @@
 import { graphql, useStaticQuery } from "gatsby";
-import { getSrc } from "gatsby-plugin-image";
 import React from "react";
 import { Helmet } from "react-helmet";
 
