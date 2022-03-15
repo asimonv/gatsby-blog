@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    defaultTitle: "@asimonv",
+    defaultTitle: "HELLO-O-O-O. Andre Simon (@asimonv)",
     defaultAuthor: "Andre Simon @asimonv",
     defaultLang: "en",
     defaultImage: '/me-c.jpg',
@@ -8,7 +8,7 @@ module.exports = {
     siteUrl: `https://asimonv.dev`,
     titleTemplate: "%s | @asimonv",
     twitterUsername: "asimonv",
-    defaultDescription: 'HELLO-O-O-O. Andre Simon @asimonv Software Engineer'
+    defaultDescription: 'Senior Software Engineer @ Microsoft'
   },
   plugins: [
     "gatsby-plugin-styled-components",
