@@ -3,7 +3,7 @@ module.exports = {
     defaultTitle: "@asimonv",
     defaultAuthor: "Andre Simon @asimonv",
     defaultLang: "en",
-    defaultImage: './src/images/me-c.jpg',
+    defaultImage: 'src/images/me-c.jpg',
     title: "@asimonv",
     siteUrl: `https://asimonv.dev`,
     titleTemplate: "%s | @asimonv",
@@ -32,6 +32,13 @@ module.exports = {
       options: {
         name: `blog`,
         path: `${__dirname}/blog/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
   ],

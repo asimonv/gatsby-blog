@@ -32,7 +32,7 @@ const StaticCodeSnippet = ({ children: code, language }) => {
   const { colorMode } = React.useContext(ThemeContext);
   return (
     <div className="flex flex-col">
-      <div class="px-4 py-1 bg-gray-800 rounded-t font-mono text-sm font-semibold inline-block self-end">
+      <div className="px-4 py-1 bg-gray-800 rounded-t font-mono text-sm font-semibold inline-block self-end">
         {language}
       </div>
       <Highlight
