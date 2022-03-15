@@ -1,20 +1,31 @@
 import { graphql, useStaticQuery } from "gatsby";
+import { getSrc } from "gatsby-plugin-image";
 import React from "react";
 import { Helmet } from "react-helmet";
 
-const SEOHeader = ({ title, meta, description, keywords, image, author, lang }) => {
+const SEOHeader = ({
+  title,
+  meta,
+  description,
+  keywords,
+  image,
+  author,
+  lang,
+}) => {
   const {
     site: {
       siteMetadata: {
+        siteUrl,
         defaultTitle,
         titleTemplate,
         defaultLang,
         defaultDescription,
         defaultAuthor,
-        defaultImage
+        defaultImage,
       },
     },
   } = useStaticQuery(query);
+
   return (
     <>
       <Helmet
@@ -47,7 +58,7 @@ const SEOHeader = ({ title, meta, description, keywords, image, author, lang }) 
           },
           {
             property: `og:image`,
-            content: image || defaultImage,
+            content: image || `${siteUrl}${defaultImage}`,
           },
           {
             name: `twitter:card`,
@@ -84,12 +95,13 @@ export const query = graphql`
   query {
     site {
       siteMetadata {
+        siteUrl
         defaultTitle
         titleTemplate
         twitterUsername
-        defaultLang,
-        defaultDescription,
-        defaultAuthor,
+        defaultLang
+        defaultDescription
+        defaultAuthor
         defaultImage
       }
     }
