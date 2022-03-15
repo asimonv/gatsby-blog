@@ -23,6 +23,7 @@ const PageLayout = ({ children }) => {
       site {
         siteMetadata {
           title
+          twitterUsername
         }
       }
     }
