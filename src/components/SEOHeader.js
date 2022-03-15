@@ -66,7 +66,7 @@ const SEOHeader = ({
           },
           {
             name: `twitter:image`,
-            content: image || defaultImage,
+            content: image || `${siteUrl}${defaultImage}`,
           },
           {
             name: `twitter:creator`,
