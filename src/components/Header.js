@@ -4,7 +4,7 @@ import DarkToggle from "./DarkToggle";
 import { FiGithub } from "react-icons/fi";
 import { FiTwitter } from "react-icons/fi";
 
-const Header = ({ siteTitle }) => {
+const Header = ({ siteTitle, twitterUsername }) => {
   return (
     <div className="self-center max-w-2xl w-full items-center flex">
       <header className="w-full p-4 flex">
@@ -28,9 +28,9 @@ const Header = ({ siteTitle }) => {
           <a
             target="_blank"
             rel="noopener noreferrer external"
-            aria-label="Twitter: @aasimonv"
+            aria-label={`Twitter: @${twitterUsername}`}
             className="flex items-center justify-center transition hover:text-blue-600"
-            href="https://twitter.com/asimonv"
+            href={`https://twitter.com/${twitterUsername}`}
           >
             <FiTwitter size={24} className="inline-block w-6 h-6 stroke-2 d" />
           </a>

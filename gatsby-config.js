@@ -1,10 +1,18 @@
 module.exports = {
   siteMetadata: {
+    defaultTitle: "@asimonv",
+    defaultAuthor: "Andre Simon @asimonv",
+    defaultLang: "en",
+    defaultImage: '/me-c.jpg',
     title: "@asimonv",
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://asimonv.dev`,
+    titleTemplate: "%s | @asimonv",
+    twitterUsername: "asimonv",
+    defaultDescription: 'HELLO-O-O-O. Andre Simon @asimonv Software Engineer'
   },
   plugins: [
     "gatsby-plugin-styled-components",
+    'gatsby-plugin-react-helmet',
     "gatsby-plugin-mdx",
     {
       resolve: "gatsby-plugin-sharp",
@@ -18,6 +26,7 @@ module.exports = {
       },
     },
     "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     "gatsby-plugin-image",
     {
       resolve: `gatsby-source-filesystem`,

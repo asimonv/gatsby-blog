@@ -43,11 +43,17 @@ const PageLayout = ({ children }) => {
     },
   };
 
+  const {
+    site: {
+      siteMetadata: { title, twitterUsername },
+    },
+  } = data;
+
   return (
     <MDXProvider components={components}>
       <div className="grow flex flex-col pt-4 space-y-4">
         <div className="self-center max-w-2xl w-full items-center flex">
-          <Header siteTitle={data.site.siteMetadata.title} />
+          <Header siteTitle={title} twitterUsername={twitterUsername} />
         </div>
         <div>
           <div className="flex flex-col">{children}</div>
