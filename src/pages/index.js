@@ -7,7 +7,7 @@ import SEOHeader from "../components/SEOHeader";
 const Home = ({ data }) => (
   <div>
     <div className="space-y-4 mt-4 grow flex flex-col max-w-4xl mx-auto">
-      <SEOHeader title="Home"/>
+      <SEOHeader />
       <Section>
         <List posts={data.allMdx.nodes} />
       </Section>
