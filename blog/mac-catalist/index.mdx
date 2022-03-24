@@ -1,0 +1,38 @@
+---
+title: Migrating an iOS app to macOS 
+date: "2022-03-23"
+description: My experience of having to migtrate an iOS app to macOS
+tags: ["functions", "javascript"]
+keywords: "functions, javascript"
+layout: Article
+author:
+  profile_image: "../../static/me-c.jpg"
+  name: Andre Simon
+hero_image: "./takehiro-tomiyama-Ysp8doynMro-unsplash.jpg"
+hero_image_alt: "Spiral Staircase taken by Takehiro Tomiyama"
+hero_image_credit_text: "Takehiro Tomiyama"
+hero_image_credit_link: "https://unsplash.com/photos/Ysp8doynMro"
+embeddedImagesLocal:
+    - './mac-catalyst.png'
+    - './mmmmmm-macos.png'
+---
+
+import { getImage } from 'gatsby-plugin-image';
+
+Some time ago I published an iOS app called <ExternalLink target="_blank" aria-label="Mmmmmm app store link" url="https://apps.apple.com/us/app/mmmmmm/id1509150681">Mmmmmm</ExternalLink>, 
+which lets the user to generate different wallpapers based on colors they could select or extract from images. <br/><br/>
+I use multiple desktops, each one for a certain purpose and sometimes they have the same wallpaper. <br/><br/>
+Today I was messing around with different images because I needed to change the wallpaper of one of them so I tried with a couple that I generated with the app and they just fit perfectly to my computer's aspect ratio. <br/><br/>
+Then it downed on me: __Why not port the app to macOS?__💡<br/><br/>
+I had read that Apple made this easier when they released *"Mac Catalyst"*, but I didn't have much time before to test this out, so now that's FHL @ Microsoft, I gave it
+a try. It's actually pretty simple, it took me actually ~10<ExternalLink target="_blank" aria-label="japanese counter for minute" url="https://www.tofugu.com/japanese/japanese-counter-fun/">分</ExternalLink>.<br/><br/>
+
+So what do you actually need to do? <br/><br/>
+
+Go to *General -> Deployment Info* and select *iPad + Mac Catalyst*.
+<StaticImageFigure image={getImage(props.localImages[0])} alt="Catalyst config to port iOS app to macOS" description="Told you it was pretty easy." />
+If you haven't added <ExternalLink target="_blank" src="https://developer.apple.com/documentation/bundleresources/information_property_list/lsapplicationcategorytype" aria-label="LSApplicationCategoryType url"><code>LSApplicationCategoryType</code></ExternalLink> to your <code>Info.plist</code>, now it's a good time,
+since it's required for macOS apps.<br/><br/>
+
+That's it! 🎉 Now all you have to do is to click on *"Add macOS App"* in <ExternalLink target="_blank" src="https://appstoreconnect.apple.com/apps" aria-label="App Store Connect">App Store Connect</ExternalLink> just like when you first added the iOS App.
+<StaticImageFigure image={getImage(props.localImages[1])} alt="Mmmmmm in macOS" description="How Mmmmmm looks in macOS" />

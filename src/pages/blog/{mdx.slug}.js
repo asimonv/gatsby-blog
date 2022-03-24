@@ -19,8 +19,8 @@ const PostPage = ({
         hero_image_alt,
         hide_article,
         og_image,
-        author_id,
         keywords,
+        embeddedImagesLocal,
       },
       body,
     },
@@ -67,7 +67,7 @@ const PostPage = ({
             </header>
             <PostAuthor />
             <div className="text-lg block mt-4">
-              <MDXRenderer>{body}</MDXRenderer>
+              <MDXRenderer localImages={embeddedImagesLocal}>{body}</MDXRenderer>
             </div>
           </article>
           <Footer />
@@ -95,6 +95,11 @@ export const query = graphql`
         hero_image_credit_link
         hero_image_credit_text
         hero_image {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+        embeddedImagesLocal {
           childImageSharp {
             gatsbyImageData
           }

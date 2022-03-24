@@ -15,6 +15,8 @@ import { MDXProvider } from "@mdx-js/react";
 import { StaticCodeSnippet } from "./StaticCodeSnippet";
 import ComponentId23 from "./ComponentId23";
 import ExternalLink from "./ExternalLink";
+import StaticImageFigure from "./StaticImageFigure";
+
 import { Button } from "./Button";
 
 const PageLayout = ({ children }) => {
@@ -34,6 +36,7 @@ const PageLayout = ({ children }) => {
     Button,
     ComponentId23,
     ExternalLink,
+    StaticImageFigure,
     pre: props => {
       const preProps = preToCodeBlock(props);
       if (preProps) {
