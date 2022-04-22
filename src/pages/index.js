@@ -17,8 +17,9 @@ const Home = ({ data }) => (
 
 export const query = graphql`
   query {
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(filter: { fileAbsolutePath: { regex: "/content/blog/" } }, sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
+        fileAbsolutePath
         frontmatter {
           date(formatString: "MMMM D, YYYY")
           title
