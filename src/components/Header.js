@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import DarkToggle from "./DarkToggle";
-import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiTwitter, FiSmile } from "react-icons/fi";
 
 const Header = ({ siteTitle, twitterUsername }) => {
   return (
@@ -15,6 +15,12 @@ const Header = ({ siteTitle, twitterUsername }) => {
         </Link>
         <div className="grow"></div>
         <div className="flex items-center space-x-4">
+          <Link
+            to="/kanji"
+            className="flex items-center justify-center transition hover:text-blue-600"
+          >
+            <FiSmile size={24} className="inline-block w-6 h-6 stroke-2 d" />
+          </Link>
           <a
             href="https://github.com/asimonv"
             target="_blank"
